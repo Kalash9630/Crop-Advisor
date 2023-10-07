@@ -2,9 +2,19 @@ import streamlit as st
 import pickle
 import numpy as np
 
+import os
+
+file_path = os.path.join(os.path.dirname(__file__), 'pipe.pkl')
+file_path2 = os.path.join(os.path.dirname(__file__), 'df.pkl')
+
+clf = pickle.load(open(file_path, 'rb'))
+df = pickle.load(open(file_path2, 'rb'))
+
 # import the model
-clf = pickle.load(open('pipe.pkl','rb'))
-df = pickle.load(open('df.pkl','rb'))
+# # clf = pickle.load(open('pipe.pkl','rb'))
+# df = pickle.load(open('df.pkl','rb'))
+# # df = pickle.load(open('pipe.pkl','rb'))
+
 
 # Initialize a flag to check if any condition is violated
 conditions_violated = False
