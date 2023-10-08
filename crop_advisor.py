@@ -17,15 +17,13 @@ custom_styles = f"""
        
         .stApp {{
             background-color: {backgroundColor};
-            color:{textColor};
-            font-family:{font};
         }}
         input[type="text"] {{
             background-color: {secondaryBackgroundColor};  /* Change this to the desired background color */
             color: {textColor};
             border: 1px solid #D3D3D3;  /* Adding a border for visual clarity */
-            border-radius: 5px;  /* Adding rounded corners */
             padding: 5px;  /* Adjusting padding for better spacing */
+            font-family:{font};
         }}
     </style>
 """
