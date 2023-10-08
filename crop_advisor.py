@@ -39,6 +39,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
+st.write("")
 K = st.text_input("##### Enter ratio of Potassium content in soil :  [ Range from 5 to 205 ] ")
 
 # Check if K is not an empty string and is a valid float
@@ -51,6 +52,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
+st.write("")
 Temp = st.text_input("##### Enter Temperature (in °C) :  [ Range from 0 to 50 ]")
 # Check if Temp is not an empty string and is a valid float
 # Check if Temp is not an empty string and is a valid float
@@ -63,6 +65,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
+st.write("")
 Humid = st.text_input("##### Enter value of relative Humidity (in %) :  [ Range from 0 to 100 ]")
 # Check if Humid is not an empty string and is a valid float
 # Check if Humid is not an empty string and is a valid float
@@ -75,6 +78,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
+st.write("")
 ph = st.text_input("##### Enter pH value in soil :  [ Range from 0 to 14 ] ")
 # Check if ph is not an empty string and is a valid float
 try:
@@ -87,6 +91,7 @@ except ValueError:
 
 
 st.markdown("")
+st.write("")
 rain = st.text_input("##### Enter value of Rainfall (in mm) :  [ Range from 15 to 300 ]")
 # Check if rain is not an empty string and is a valid float
 try:
@@ -102,6 +107,7 @@ if conditions_violated:
     st.markdown("<h3 style='color:red'>Please correct the condition before predicting the crop.</h3>", unsafe_allow_html=True)
 else:
     st.markdown("")
+    st.write("")
     if st.button('Predict Crop'):
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
