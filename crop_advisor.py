@@ -3,10 +3,13 @@ import pickle
 import numpy as np
 
 # Define theme colors and font
-backgroundColor = "#0E1117"
-textColor = "#FAFAFA"
-font = "sans-serif"
-secondaryBackgroundColor = "#262730"
+
+primaryColor="#FF4B4B"
+backgroundColor="#0E1117"
+secondaryBackgroundColor="#262730"
+textColor="#FAFAFA"
+font="sans serif"
+
 
 # Add custom CSS
 custom_styles = f"""
