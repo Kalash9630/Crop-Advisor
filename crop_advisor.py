@@ -107,7 +107,6 @@ if conditions_violated:
     st.markdown("<h3 style='color:red'>Please correct the condition before predicting the crop.</h3>", unsafe_allow_html=True)
 else:
     st.markdown("")
-    st.write("")
     if st.button('Predict Crop'):
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
