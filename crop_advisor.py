@@ -5,10 +5,12 @@ import numpy as np
 custom_styles = f"""
     <style>
         .stApp {{
-            background-color: #0E1117;
+            background-color: "#0E1117";
         }}
     </style>
 """
+# Apply custom styles
+st.markdown(custom_styles, unsafe_allow_html=True)
 
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
