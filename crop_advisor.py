@@ -2,31 +2,6 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Define theme colors and font
-primaryColor = "#FF4B4B"
-backgroundColor = "#0E1117"
-secondaryBackgroundColor = "#262730"
-textColor = "#FAFAFA"
-font = "sans-serif"
-
-# Add custom CSS
-custom_styles = f"""
-    <style>
-        .stApp {{
-            background-color: {backgroundColor};
-        }}
-        
-        input[type="text"] {{
-            background-color: #262730;  /* Change this to the desired background color */
-            color: {textColor};
-            border: 1px solid #0E1117;  /* Set border color to transparent or your desired color */
-        }}
-    </style>
-"""
-
-# Apply custom styles
-st.markdown(custom_styles, unsafe_allow_html=True)
-
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
 df = pickle.load(open('df.pkl','rb'))
@@ -35,13 +10,11 @@ df = pickle.load(open('df.pkl','rb'))
 conditions_violated = False
 
 # title
-st.markdown("<div style='text-align: center;color:aqua;font-weight: bold; font-size: 60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
+st.markdown("# <div style='text-align: center;color:aqua'>CROP ADVISOR</div>", unsafe_allow_html=True)
 
 st.markdown("")
 st.markdown("")
-
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Nitrogen content in soil: [Range from 1 to 140]</div></div>", unsafe_allow_html=True)
-N = st.text_input("",key="nitrogen_input")
+N = st.text_input("##### Enter ratio of Nitrogen content in soil :  [ Range from 1 to 140 ]")
 # Check if N is not an empty string and is a valid float
 # Check if N is not an empty string and is a valid integer
 try:
@@ -53,8 +26,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Phosphorous content in soil : [ Range from 5 to 145 ]</div></div>", unsafe_allow_html=True)
-P = st.text_input("",key="phosphorous_input")
+P = st.text_input("##### Enter ratio of Phosphorous content in soil : [ Range from 5 to 145 ]")
 # Check if P is not an empty string and is a valid float
 # Similar try-except blocks for P and K
 try:
@@ -66,8 +38,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Potassium content in soil :  [ Range from 5 to 205 ] </div></div>", unsafe_allow_html=True)
-K = st.text_input("",key="potassium_input")
+K = st.text_input("##### Enter ratio of Potassium content in soil :  [ Range from 5 to 205 ] ")
 
 # Check if K is not an empty string and is a valid float
 try:
@@ -79,8 +50,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter Temperature (in °C) :  [ Range from 0 to 50 ]</div></div>", unsafe_allow_html=True)
-Temp = st.text_input("",key="temperature_input")
+Temp = st.text_input("##### Enter Temperature (in °C) :  [ Range from 0 to 50 ]")
 # Check if Temp is not an empty string and is a valid float
 # Check if Temp is not an empty string and is a valid float
 try:
@@ -92,8 +62,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter value of relative Humidity (in %) :  [ Range from 0 to 100 ]</div></div>", unsafe_allow_html=True)
-Humid = st.text_input("",key="humidity_input")
+Humid = st.text_input("##### Enter value of relative Humidity (in %) :  [ Range from 0 to 100 ]")
 # Check if Humid is not an empty string and is a valid float
 # Check if Humid is not an empty string and is a valid float
 try:
@@ -105,8 +74,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter pH value in soil :  [ Range from 0 to 14 ] </div></div>", unsafe_allow_html=True)
-ph = st.text_input("",key="ph_input")
+ph = st.text_input("##### Enter pH value in soil :  [ Range from 0 to 14 ] ")
 # Check if ph is not an empty string and is a valid float
 try:
     if ph and not (0 <= float(ph) <= 14):
@@ -118,8 +86,7 @@ except ValueError:
 
 
 st.markdown("")
-st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter value of Rainfall (in mm) :  [ Range from 15 to 300 ]</div></div>", unsafe_allow_html=True)
-rain = st.text_input("",key="rainfall_input")
+rain = st.text_input("##### Enter value of Rainfall (in mm) :  [ Range from 15 to 300 ]")
 # Check if rain is not an empty string and is a valid float
 try:
     if rain and not (15 <= float(rain) <= 300):
@@ -134,11 +101,7 @@ if conditions_violated:
     st.markdown("<h3 style='color:red'>Please correct the condition before predicting the crop.</h3>", unsafe_allow_html=True)
 else:
     st.markdown("")
-    button_html = f"""
-        <button style="background-color:{secondaryBackgroundColor}; color:{textColor}; font-size: 18px; padding: 10px 20px; border-radius: 5px;">Predict Crop</button>
-    """
-    if st.markdown(button_html, unsafe_allow_html=True):
-        # Convert only if not empty
+    if st.button('Predict Crop'):
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
         st.markdown("<h1 style='color:#a5f10b;'>The Suitable Crop to grow in these conditions is " + clf.predict(query)[0].capitalize() + ".</h1>", unsafe_allow_html=True)
