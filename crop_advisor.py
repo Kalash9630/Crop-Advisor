@@ -2,6 +2,13 @@ import streamlit as st
 import pickle
 import numpy as np
 
+custom_styles = f"""
+    <style>
+        .stApp {{
+            background-color: #0E1117;
+        }}
+    </style>
+"""
 
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
