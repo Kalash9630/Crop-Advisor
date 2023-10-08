@@ -2,6 +2,29 @@ import streamlit as st
 import pickle
 import numpy as np
 
+# Add custom CSS
+custom_styles = f"""
+    <style>
+        body {{
+            background-color: {backgroundColor};
+            color: {textColor};
+            font-family: {font};
+        }}
+        .stApp {{
+            background-color: {secondaryBackgroundColor};
+        }}
+    </style>
+"""
+
+# Define theme colors and font
+backgroundColor = "#0E1117"
+textColor = "#FAFAFA"
+font = "sans-serif"
+secondaryBackgroundColor = "#262730"
+
+# Apply custom styles
+st.markdown(custom_styles, unsafe_allow_html=True)
+
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
 df = pickle.load(open('df.pkl','rb'))
