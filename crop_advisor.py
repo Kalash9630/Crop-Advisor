@@ -2,13 +2,22 @@ import streamlit as st
 import pickle
 import numpy as np
 
+# Define theme colors and font
+primaryColor = "#FF4B4B"
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#FAFAFA"
+font = "sans-serif"
+
+# Add custom CSS
 custom_styles = f"""
     <style>
         .stApp {{
-            background-color: "#0E1117";
+            background-color: {backgroundColor};
         }}
     </style>
 """
+
 # Apply custom styles
 st.markdown(custom_styles, unsafe_allow_html=True)
 
