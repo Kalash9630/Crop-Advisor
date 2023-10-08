@@ -2,7 +2,39 @@ import streamlit as st
 import pickle
 import numpy as np
 
+# Define theme colors and font
+primaryColor="#FF4B4B"
+backgroundColor="#0E1117"
+secondaryBackgroundColor="#262730"
+textColor="#FAFAFA"
+font="sans-serif"
 
+# Define border color
+borderColor = "#3498db"  # Change this to the desired border color
+
+# Add custom CSS
+custom_styles = f"""
+    <style>
+        body {{
+            background-color: {backgroundColor};
+            color: {textColor};
+            font-family: {font};
+        }}
+        .stApp {{
+            background-color: {secondaryBackgroundColor};
+        }}
+        input[type="text"] {{
+            background-color: #D3D3D3;  /* Change this to the desired background color */
+            color: {textColor};
+            border: 2px solid {borderColor};  /* Use the specified border color */
+            border-radius: 5px;  /* Adding rounded corners */
+            padding: 5px;  /* Adjusting padding for better spacing */
+        }}
+    </style>
+"""
+
+# Apply custom styles
+st.markdown(custom_styles, unsafe_allow_html=True)
 
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
