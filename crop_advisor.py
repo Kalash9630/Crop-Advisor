@@ -21,6 +21,7 @@ custom_styles = f"""
         input[type="text"] {{
             background-color: {secondaryBackgroundColor};  /* Change this to the desired background color */
             color: {textColor};
+            boder-color:{secondaryBackgroundColor};
             font-family:{font};
         }}
     </style>
