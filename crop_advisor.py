@@ -15,16 +15,11 @@ borderColor = "#3498db"  # Change this to the desired border color
 # Add custom CSS
 custom_styles = f"""
     <style>
-        body {{
-            background-color: {backgroundColor};
-            color: {textColor};
-            font-family: {font};
-        }}
         .stApp {{
-            background-color: {secondaryBackgroundColor};
+            background-color: {backgroundColor};
         }}
         input[type="text"] {{
-            background-color: #D3D3D3;  /* Change this to the desired background color */
+            background-color: #262730;  /* Change this to the desired background color */
             color: {textColor};
             border: 1px solid #262730;  /* Use the specified border color */
         }}
