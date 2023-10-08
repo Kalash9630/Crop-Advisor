@@ -53,7 +53,8 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-P = st.text_input("##### Enter ratio of Phosphorous content in soil : [ Range from 5 to 145 ]")
+st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Phosphorous content in soil : [ Range from 5 to 145 ]</div></div>", unsafe_allow_html=True)
+P = st.text_input("")
 # Check if P is not an empty string and is a valid float
 # Similar try-except blocks for P and K
 try:
@@ -65,7 +66,8 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-K = st.text_input("##### Enter ratio of Potassium content in soil :  [ Range from 5 to 205 ] ")
+st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Potassium content in soil :  [ Range from 5 to 205 ] </div></div>", unsafe_allow_html=True)
+K = st.text_input("")
 
 # Check if K is not an empty string and is a valid float
 try:
@@ -77,7 +79,8 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-Temp = st.text_input("##### Enter Temperature (in °C) :  [ Range from 0 to 50 ]")
+st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter Temperature (in °C) :  [ Range from 0 to 50 ]</div></div>", unsafe_allow_html=True)
+Temp = st.text_input("")
 # Check if Temp is not an empty string and is a valid float
 # Check if Temp is not an empty string and is a valid float
 try:
@@ -89,7 +92,8 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-Humid = st.text_input("##### Enter value of relative Humidity (in %) :  [ Range from 0 to 100 ]")
+st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter value of relative Humidity (in %) :  [ Range from 0 to 100 ]</div></div>", unsafe_allow_html=True)
+Humid = st.text_input("")
 # Check if Humid is not an empty string and is a valid float
 # Check if Humid is not an empty string and is a valid float
 try:
@@ -101,7 +105,8 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
-ph = st.text_input("##### Enter pH value in soil :  [ Range from 0 to 14 ] ")
+st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter pH value in soil :  [ Range from 0 to 14 ] </div></div>", unsafe_allow_html=True)
+ph = st.text_input("")
 # Check if ph is not an empty string and is a valid float
 try:
     if ph and not (0 <= float(ph) <= 14):
@@ -113,7 +118,8 @@ except ValueError:
 
 
 st.markdown("")
-rain = st.text_input("##### Enter value of Rainfall (in mm) :  [ Range from 15 to 300 ]")
+st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter value of Rainfall (in mm) :  [ Range from 15 to 300 ]</div></div>", unsafe_allow_html=True)
+rain = st.text_input("")
 # Check if rain is not an empty string and is a valid float
 try:
     if rain and not (15 <= float(rain) <= 300):
