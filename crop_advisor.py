@@ -15,9 +15,7 @@ custom_styles = f"""
         .stApp {{
             background-color: {backgroundColor};
         }}
-        .stButton {{
-            background-color:{secondaryBackgroundColor};
-        }}
+        
         input[type="text"] {{
             background-color: #262730;  /* Change this to the desired background color */
             color: {textColor};
