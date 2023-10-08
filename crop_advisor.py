@@ -9,8 +9,6 @@ secondaryBackgroundColor="#262730"
 textColor="#FAFAFA"
 font="sans-serif"
 
-# Define border color
-borderColor = "#3498db"  # Change this to the desired border color
 
 # Add custom CSS
 custom_styles = f"""
