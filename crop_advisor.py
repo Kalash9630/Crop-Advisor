@@ -16,7 +16,11 @@ custom_styles = f"""
     <style>
         body {{
             background-color: {backgroundColor};
+            color: {textColor};
             font-family: {font};
+        }}
+        .stApp {{
+            background-color: {secondaryBackgroundColor};
         }}
     </style>
 """
