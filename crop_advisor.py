@@ -2,19 +2,6 @@ import streamlit as st
 import pickle
 import numpy as np
 
-st.markdown(
-    """
-    <style>
-        body {
-            background-color: #0E1117;
-            color: #FAFAFA;
-            font-family: sans-serif;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
 df = pickle.load(open('df.pkl','rb'))
