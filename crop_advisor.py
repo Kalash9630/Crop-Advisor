@@ -26,9 +26,7 @@ custom_styles = f"""
         input[type="text"] {{
             background-color: #D3D3D3;  /* Change this to the desired background color */
             color: {textColor};
-            border: 2px solid {borderColor};  /* Use the specified border color */
-            border-radius: 5px;  /* Adding rounded corners */
-            padding: 5px;  /* Adjusting padding for better spacing */
+            border: 1px solid #262730;  /* Use the specified border color */
         }}
     </style>
 """
