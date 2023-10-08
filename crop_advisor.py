@@ -50,7 +50,7 @@ app.layout = html.Div(children=[
     # Add more components as needed
 ])
 st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Nitrogen content in soil: [Range from 1 to 140]</div></div>", unsafe_allow_html=True)
-N = st.text_input("",key="nitrogen_input",style={'width': '120%'})
+N = st.text_input("",key="nitrogen_input")
 # Check if N is not an empty string and is a valid float
 # Check if N is not an empty string and is a valid integer
 try:
