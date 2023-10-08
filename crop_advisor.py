@@ -16,7 +16,7 @@ custom_styles = f"""
             background-color: {backgroundColor};
         }}
         .stButton {{
-            background-color: {secondaryBackgroundColor};
+            background-color:{secondaryBackgroundColor};
             color: {textColor};
         }}
         input[type="text"] {{
