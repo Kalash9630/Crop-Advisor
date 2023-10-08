@@ -20,7 +20,7 @@ custom_styles = f"""
             background-color: #262730;  /* Change this to the desired background color */
             color: {textColor};
             border: 1px solid #262730;  /* Use the specified border color */
-            width: 100%;
+            width: 120%;
         }}
     </style>
 """
