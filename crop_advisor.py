@@ -2,27 +2,6 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Define theme colors and font
-primaryColor="#FF4B4B"
-backgroundColor="#0E1117"
-secondaryBackgroundColor="#262730"
-
-
-# Add custom CSS
-custom_styles = f"""
-    <style>
-        .stApp {{
-            background-color: {backgroundColor};
-        }}
-        input[type="text"] {{
-            background-color: #262730;  /* Change this to the desired background color */
-            border: 1px solid transparent;
-        }}
-    </style>
-"""
-
-# Apply custom styles
-st.markdown(custom_styles, unsafe_allow_html=True)
 
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
