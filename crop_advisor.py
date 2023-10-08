@@ -10,7 +10,7 @@ df = pickle.load(open('df.pkl','rb'))
 conditions_violated = False
 
 # title
-st.markdown("<div style='text-align: center;color:#4CAF50;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;color:black;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
 
 st.markdown("")
 st.markdown("")
@@ -110,4 +110,4 @@ else:
     if st.button('Predict Crop'):
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
-        st.markdown("<h1 style='color:#a5f10b;'>The Suitable Crop to grow in these conditions is " + clf.predict(query)[0].capitalize() + ".</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='color:#4CAF50;'>The Suitable Crop to grow in these conditions is " + clf.predict(query)[0].capitalize() + ".</h1>", unsafe_allow_html=True)
