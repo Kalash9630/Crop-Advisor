@@ -20,10 +20,10 @@ custom_styles = f"""
             font-family: {font};
         }}
         .stApp {{
-            background-color: {secondaryBackgroundColor};
+            background-color: {backgroundColor};
         }}
         input[type="text"] {{
-            background-color: {backgroundColor};  /* Change this to the desired background color */
+            background-color: {secondaryBackgroundColor};  /* Change this to the desired background color */
             color: {textColor};
             border: 1px solid #D3D3D3;  /* Adding a border for visual clarity */
             border-radius: 5px;  /* Adding rounded corners */
