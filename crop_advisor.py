@@ -6,8 +6,6 @@ import numpy as np
 primaryColor="#FF4B4B"
 backgroundColor="#0E1117"
 secondaryBackgroundColor="#262730"
-textColor="#FAFAFA"
-font="sans-serif"
 
 
 # Add custom CSS
@@ -18,7 +16,6 @@ custom_styles = f"""
         }}
         input[type="text"] {{
             background-color: #262730;  /* Change this to the desired background color */
-            color: {textColor};
             border: 1px solid transparent;
         }}
     </style>
