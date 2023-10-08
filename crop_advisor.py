@@ -17,6 +17,8 @@ custom_styles = f"""
        
         .stApp {{
             background-color: {backgroundColor};
+            color:{textColor};
+            font-family:{font};
         }}
         input[type="text"] {{
             background-color: {secondaryBackgroundColor};  /* Change this to the desired background color */
