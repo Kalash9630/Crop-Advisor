@@ -16,11 +16,7 @@ custom_styles = f"""
     <style>
         body {{
             background-color: {backgroundColor};
-            color: {textColor};
             font-family: {font};
-        }}
-        .stApp {{
-            background-color: {secondaryBackgroundColor};
         }}
     </style>
 """
@@ -40,7 +36,7 @@ st.markdown("# <div style='text-align: center;color:aqua'>CROP ADVISOR</div>", u
 
 st.markdown("")
 st.markdown("")
-N = st.text_input("##### Enter ratio of Nitrogen content in soil :  [ Range from 1 to 140 ]")
+N = st.text_input("<div style=' color:#FAFAFA;background-color:#262730>Enter ratio of Nitrogen content in soil :  [ Range from 1 to 140 ]"</div>)
 # Check if N is not an empty string and is a valid float
 # Check if N is not an empty string and is a valid integer
 try:
