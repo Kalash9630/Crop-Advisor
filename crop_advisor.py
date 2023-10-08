@@ -23,7 +23,7 @@ custom_styles = f"""
 """
 
 # Apply custom styles
-st.markdown(custom_styles, unsafe_allow_html=True
+st.markdown(custom_styles, unsafe_allow_html=True)
 
 # import the model
 clf = pickle.load(open('pipe.pkl','rb'))
