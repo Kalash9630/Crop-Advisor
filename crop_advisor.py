@@ -133,10 +133,12 @@ except ValueError:
 if conditions_violated:
     st.markdown("<h3 style='color:red'>Please correct the condition before predicting the crop.</h3>", unsafe_allow_html=True)
 else:
+    st.markdown("")
     button_html = f"""
         <button style="background-color:{secondaryBackgroundColor}; color:{textColor}; font-size: 18px; padding: 10px 20px; border-radius: 5px;">Predict Crop</button>
     """
     if st.markdown(button_html, unsafe_allow_html=True):
+        # Convert only if not empty
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
         st.markdown("<h1 style='color:#a5f10b;'>The Suitable Crop to grow in these conditions is " + clf.predict(query)[0].capitalize() + ".</h1>", unsafe_allow_html=True)
