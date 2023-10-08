@@ -40,7 +40,7 @@ st.markdown("# <div style='text-align: center;color:aqua'>CROP ADVISOR</div>", u
 
 st.markdown("")
 st.markdown("")
-st.markdown("<div style='color:#FAFAFA'>Enter ratio of Nitrogen content in soil:<br>[Range from 1 to 140]</div>", unsafe_allow_html=True)
+st.markdown("#### <div style='color:#FAFAFA'>Enter ratio of Nitrogen content in soil: [Range from 1 to 140]</div>", unsafe_allow_html=True)
 N = st.text_input("")
 # Check if N is not an empty string and is a valid float
 # Check if N is not an empty string and is a valid integer
