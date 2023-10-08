@@ -2,13 +2,17 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Set the theme
-st.set_page_config(
-    page_title="Your Streamlit App",
-    page_icon=":chart_with_upwards_trend:",
-    layout="wide",  # Optional
-    initial_sidebar_state="expanded",  # Optional
-    theme="dark",  # Optional: "light" or "dark"
+st.markdown(
+    """
+    <style>
+        body {
+            background-color: #0E1117;
+            color: #FAFAFA;
+            font-family: sans-serif;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
 
 # import the model
