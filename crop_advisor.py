@@ -39,16 +39,7 @@ st.markdown("<div style='text-align: center;color:aqua;font-weight: bold; font-s
 
 st.markdown("")
 st.markdown("")
-import dash_core_components as dcc
-import dash_html_components as html
 
-app = dash.Dash(__name__)
-
-app.layout = html.Div(children=[
-    html.Label('Enter Nitrogen content in soil:'),
-    dcc.Input(id='nitrogen_input', type='text', value=''),
-    # Add more components as needed
-])
 st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Nitrogen content in soil: [Range from 1 to 140]</div></div>", unsafe_allow_html=True)
 N = st.text_input("",key="nitrogen_input")
 # Check if N is not an empty string and is a valid float
