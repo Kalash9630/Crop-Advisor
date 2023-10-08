@@ -19,7 +19,7 @@ custom_styles = f"""
         input[type="text"] {{
             background-color: #262730;  /* Change this to the desired background color */
             color: {textColor};
-            border: 1px solid #262730;  /* Use the specified border color */
+            border: 1px solid transparent;
         }}
     </style>
 """
