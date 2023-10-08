@@ -26,6 +26,7 @@ except ValueError:
     conditions_violated = True
 
 st.markdown("")
+st.write("")
 P = st.text_input("##### Enter ratio of Phosphorous content in soil : [ Range from 5 to 145 ]")
 # Check if P is not an empty string and is a valid float
 # Similar try-except blocks for P and K
