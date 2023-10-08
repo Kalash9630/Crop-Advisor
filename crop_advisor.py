@@ -20,8 +20,7 @@ custom_styles = f"""
         }}
         input[type="text"] {{
             background-color: {secondaryBackgroundColor};  /* Change this to the desired background color */
-            color: {textColor};
-            boder-color:{secondaryBackgroundColor};
+            border: 1px solid {secondaryBackgroundColor};
             font-family:{font};
         }}
     </style>
