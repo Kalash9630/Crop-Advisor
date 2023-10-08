@@ -20,6 +20,10 @@ custom_styles = f"""
             color: {textColor};
             border: 1px solid #0E1117;  /* Set border color to transparent or your desired color */
         }}
+        .stButton>button {{
+            background-color: {secondaryBackgroundColor};
+            color: {textColor};
+        }}
     </style>
 """
 
@@ -133,7 +137,7 @@ if conditions_violated:
     st.markdown("<h3 style='color:red'>Please correct the condition before predicting the crop.</h3>", unsafe_allow_html=True)
 else:
     st.markdown("")
-    if st.button('Predict Crop', bg_color=secondaryBackgroundColor):
+    if st.button('Predict Crop'):
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
         st.markdown("<h1 style='color:#a5f10b;'>The Suitable Crop to grow in these conditions is " + clf.predict(query)[0].capitalize() + ".</h1>", unsafe_allow_html=True)
