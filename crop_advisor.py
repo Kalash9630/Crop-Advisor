@@ -20,6 +20,7 @@ custom_styles = f"""
             background-color: #262730;  /* Change this to the desired background color */
             color: {textColor};
             border: 1px solid #262730;  /* Use the specified border color */
+            width: 100%;
         }}
     </style>
 """
@@ -40,7 +41,7 @@ st.markdown("<div style='text-align: center;color:aqua;font-weight: bold; font-s
 st.markdown("")
 st.markdown("")
 st.markdown("#### <div style='color:#FAFAFA;'><div style='margin-bottom: -5%;'>Enter ratio of Nitrogen content in soil: [Range from 1 to 140]</div></div>", unsafe_allow_html=True)
-N = st.text_input("",key="nitrogen_input",width=100)
+N = st.text_input("",key="nitrogen_input")
 # Check if N is not an empty string and is a valid float
 # Check if N is not an empty string and is a valid integer
 try:
