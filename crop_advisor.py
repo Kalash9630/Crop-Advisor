@@ -111,4 +111,3 @@ else:
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
         st.markdown("<h1 style='color:#4CAF50;'>The Suitable Crop to grow in these conditions is " + clf.predict(query)[0].capitalize() + ".</h1>", unsafe_allow_html=True)
-I want to make the background color dark green
