@@ -9,11 +9,11 @@ df = pickle.load(open('df.pkl','rb'))
 # Initialize a flag to check if any condition is violated
 conditions_violated = False
 
-# Add custom CSS for background color
+# Add custom CSS for background color (applies to Streamlit's app container)
 st.markdown(
     """
     <style>
-    body {
+    .stApp {
         background-color: #013220;  /* Dark green background */
     }
     </style>
