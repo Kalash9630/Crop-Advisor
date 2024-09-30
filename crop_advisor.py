@@ -9,6 +9,18 @@ df = pickle.load(open('df.pkl','rb'))
 # Initialize a flag to check if any condition is violated
 conditions_violated = False
 
+# Add custom CSS for background color
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #013220;  /* Dark green background */
+    }
+    </style>
+    """, 
+    unsafe_allow_html=True
+)
+
 # title
 st.markdown("<div style='text-align: center;color:#ADD8E6;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
 
