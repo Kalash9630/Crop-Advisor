@@ -14,7 +14,7 @@ st.markdown("<div style='text-align: center;color:#ADD8E6;font-weight:bold;font-
 
 st.markdown("")
 st.markdown("")
-N = st.text_input("##### Enter ratio of  content in soil :  [ Range from 1 to 140 ]")
+N = st.text_input("##### Enter ratio of Nitrogen content in soil :  [ Range from 1 to 140 ]")
 # Check if N is not an empty string and is a valid float
 # Check if N is not an empty string and is a valid integer
 try:
