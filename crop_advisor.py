@@ -3,14 +3,17 @@ import pickle
 import numpy as np
 
 # import the model
-clf = pickle.load(open('pipe.pkl','rb'))
-df = pickle.load(open('df.pkl','rb'))
+clf = pickle.load(open('pipe.pkl', 'rb'))
+df = pickle.load(open('df.pkl', 'rb'))
 
 # Initialize a flag to check if any condition is violated
 conditions_violated = False
 
 # title
 st.markdown("<div style='text-align: center;color:#0000FF;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
+
+# (Rest of your code remains unchanged)
+
 
 
 st.markdown("")
