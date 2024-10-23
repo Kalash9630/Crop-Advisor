@@ -12,10 +12,6 @@ conditions_violated = False
 # title
 st.markdown("<div style='text-align: center;color:#0000FF;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
 
-# (Rest of your code remains unchanged)
-
-
-
 st.markdown("")
 st.markdown("")
 N = st.text_input("##### Enter ratio of Nitrogen content in soil :  [ Range from 1 to 140 ]")
