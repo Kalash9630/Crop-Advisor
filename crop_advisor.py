@@ -18,7 +18,7 @@ df = pickle.load(open('df.pkl', 'rb'))
 conditions_violated = False
 
 # title
-#st.markdown("<div style='text-align: center;color:#0000FF;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center;color:#0000FF;font-weight:bold;font-size:60px'>CROP ADVISOR</div>", unsafe_allow_html=True)
 
 st.markdown("")
 st.markdown("")
