@@ -100,11 +100,13 @@ except ValueError:
     st.markdown("<p style='text-align: center;color:red;font-size: 20px'>Please enter a valid integer or float value for Rainfall.</p>", unsafe_allow_html=True)
     conditions_violated = True
 
-# If any condition is violated, don't proceed with the prediction
-if conditions_violated:
-    st.markdown("<h3 style='color:red'>Please correct the conditions before predicting the crop.</h3>", unsafe_allow_html=True)
-else:
-    if st.button('Predict Crop'):
+# Check if all inputs are filled before predicting
+if st.button('Predict Crop'):
+    if not all([N, P, K, Temp, Humid, ph, rain]):
+        st.markdown("<p style='text-align: center;color:red;font-size: 20px'>Please enter all specified values mentioned.</p>", unsafe_allow_html=True)
+    elif conditions_violated:
+        st.markdown("<h3 style='color:red'>Please correct the conditions before predicting the crop.</h3>", unsafe_allow_html=True)
+    else:
         query = np.array([float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)])
         query = query.reshape(1, 7)
         prediction = clf.predict(query)
