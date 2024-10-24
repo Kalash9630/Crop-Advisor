@@ -13,18 +13,20 @@ st.markdown("")
 
 # Function to validate input fields
 def validate_input(value, min_value, max_value, field_name):
-    try:
-        float_value = float(value)
-        if float_value < min_value or float_value > max_value:
-            st.markdown(f"<h6 style='color: red;'>{field_name} must be between {min_value} and {max_value}.</h6>", unsafe_allow_html=True)
+    if value:
+        try:
+            float_value = float(value)
+            if float_value < min_value or float_value > max_value:
+                st.markdown(f"<h6 style='color: red;'>{field_name} must be between {min_value} and {max_value}.</h6>", unsafe_allow_html=True)
+                return None
+            return float_value
+        except ValueError:
+            st.markdown(f"<h6 style='color: red;'>Please enter a valid number for {field_name}.</h6>", unsafe_allow_html=True)
             return None
-        return float_value
-    except ValueError:
-        st.markdown(f"<h6 style='color: red;'>Please enter a valid number for {field_name}.</h6>", unsafe_allow_html=True)
-        return None
+    return None
 
 # Input fields with validations
-N = st.text_input("##### Enter ratio of Nitrogen content in soil:  [Range from 1 to 140]", key="nitrogen_input")
+N = st.text_input("## Enter ratio of Nitrogen content in soil:  [Range from 1 to 140]", key="nitrogen_input")
 N = validate_input(N, 1, 140, "Nitrogen content")
 
 st.markdown("")
@@ -54,7 +56,7 @@ rain = validate_input(rain, 15, 300, "Rainfall")
 st.markdown("")
 
 # Predict the crop based on valid inputs
-if all([N, P, K, Temp, Humid, ph, rain]):
+if all([N is not None, P is not None, K is not None, Temp is not None, Humid is not None, ph is not None, rain is not None]):
     # Convert input values to float and create an array
     input_data = np.array([[N, P, K, Temp, Humid, ph, rain]])
     
