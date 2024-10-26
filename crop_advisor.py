@@ -2,51 +2,70 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Load the model and dataset
+# Import the model
 clf = pickle.load(open('pipe.pkl', 'rb'))
 df = pickle.load(open('df.pkl', 'rb'))
 
 # Title
 st.markdown("<h1 style='text-align: center;'>CROP ADVISOR</h1>", unsafe_allow_html=True)
 
-# Function to validate input and display an error message
-def validate_input(input_value, min_value, max_value, label):
-    try:
-        val = float(input_value)
-        if val < min_value or val > max_value:
-            st.markdown(f"<h6 style='color: red;'>{label} must be between {min_value} and {max_value}.</h6>", unsafe_allow_html=True)
-            return None
-        return val
-    except ValueError:
-        if input_value:
-            st.markdown(f"<h6 style='color: red;'>{label} must be a number.</h6>", unsafe_allow_html=True)
-        return None
+st.markdown("")
 
-# Collect and validate user inputs
-N = validate_input(st.text_input("##### Enter ratio of Nitrogen content in soil:  [Range from 1 to 140]"), 1, 140, "Nitrogen content")
-P = validate_input(st.text_input("##### Enter ratio of Phosphorous content in soil:  [Range from 5 to 145]"), 5, 145, "Phosphorous content")
-K = validate_input(st.text_input("##### Enter ratio of Potassium content in soil:  [Range from 5 to 205]"), 5, 205, "Potassium content")
-Temp = validate_input(st.text_input("##### Enter Temperature (in °C):  [Range from 0 to 50]"), 0, 50, "Temperature")
-Humid = validate_input(st.text_input("##### Enter value of relative Humidity (in %):  [Range from 0 to 100]"), 0, 100, "Humidity")
-ph = validate_input(st.text_input("##### Enter pH value in soil:  [Range from 0 to 14]"), 0, 14, "pH value")
-rain = validate_input(st.text_input("##### Enter value of Rainfall (in mm):  [Range from 15 to 300]"), 15, 300, "Rainfall")
+# Input fields with validations
+N = st.text_input("##### Enter ratio of Nitrogen content in soil:  [Range from 1 to 140]", key="nitrogen_input")
+if N and (float(N) < 1 or float(N) > 140):
+    st.markdown("<h6 style='color: red;'>Nitrogen content must be between 1 and 140.</h6>", unsafe_allow_html=True)
 
-# Check if all inputs are valid
-if None not in (N, P, K, Temp, Humid, ph, rain):
-    # Convert input values to a numpy array of dtype float64 for prediction
-    input_data = np.array([[N, P, K, Temp, Humid, ph, rain]], dtype=np.float64)
+st.markdown("")
+P = st.text_input("##### Enter ratio of Phosphorous content in soil:  [Range from 5 to 145]", key="phosphorous_input")
+if P and (float(P) < 5 or float(P) > 145):
+    st.markdown("<h6 style='color: red;'>Phosphorous content must be between 5 and 145.</h6>", unsafe_allow_html=True)
 
-    # Check input shape and type (optional for debugging)
-    st.write("Input data shape:", input_data.shape)
-    st.write("Input data type:", input_data.dtype)
+st.markdown("")
+K = st.text_input("##### Enter ratio of Potassium content in soil:  [Range from 5 to 205]", key="potassium_input")
+if K and (float(K) < 5 or float(K) > 205):
+    st.markdown("<h6 style='color: red;'>Potassium content must be between 5 and 205.</h6>", unsafe_allow_html=True)
 
-    # Make the prediction
-    try:
+st.markdown("")
+Temp = st.text_input("##### Enter Temperature (in °C):  [Range from 0 to 50]", key="temperature_input")
+if Temp and (float(Temp) < 0 or float(Temp) > 50):
+    st.markdown("<h6 style='color: red;'>Temperature must be between 0 and 50 °C.</h6>", unsafe_allow_html=True)
+
+st.markdown("")
+Humid = st.text_input("##### Enter value of relative Humidity (in %):  [Range from 0 to 100]", key="humidity_input")
+if Humid and (float(Humid) < 0 or float(Humid) > 100):
+    st.markdown("<h6 style='color: red;'>Humidity must be between 0 and 100%.</h6>", unsafe_allow_html=True)
+
+st.markdown("")
+ph = st.text_input("##### Enter pH value in soil:  [Range from 0 to 14]", key="ph_input")
+if ph and (float(ph) < 0 or float(ph) > 14):
+    st.markdown("<h6 style='color: red;'>pH value must be between 0 and 14.</h6>", unsafe_allow_html=True)
+
+st.markdown("")
+rain = st.text_input("##### Enter value of Rainfall (in mm):  [Range from 15 to 300]", key="rainfall_input")
+if rain and (float(rain) < 15 or float(rain) > 300):
+    st.markdown("<h6 style='color: red;'>Rainfall must be between 15 and 300 mm.</h6>", unsafe_allow_html=True)
+
+st.markdown("")
+# Predict the crop based on valid inputs
+if N and P and K and Temp and Humid and ph and rain:
+    if all((1 <= float(N) <= 140,
+            5 <= float(P) <= 145,
+            5 <= float(K) <= 205,
+            0 <= float(Temp) <= 50,
+            0 <= float(Humid) <= 100,
+            0 <= float(ph) <= 14,
+            15 <= float(rain) <= 300)):
+        
+        # Convert input values to float and create an array
+        input_data = np.array([[float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)]])
+        
+        # Make the prediction
         prediction = clf.predict(input_data)
+        
         # Display the result
-        st.markdown(f"<h1 style='color:#4CAF50;'>The Suitable Crop to grow in these conditions is {prediction[0].capitalize()}.</h1>", unsafe_allow_html=True)
-    except Exception as e:
-        st.error("An error occurred during prediction. Please check input values.")
-        st.error(f"Error details: {str(e)}")
+        st.markdown(f"<h1 style='color:#4CAF50;'>The Suitable Crop to grow in these conditions is           {prediction[0].capitalize()}.</h1>", unsafe_allow_html=True)
+    else:
+        st.markdown("<h5 style='color: red;'>Please enter valid values in all fields to enable the prediction of Crop.</h5>", unsafe_allow_html=True)
 else:
-    st.markdown("<h5 style='color: red;'>Please fill all fields with valid values to enable the prediction of Crop.</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='color: red;'>Please fill all fields to enable the prediction of Crop.</h5>", unsafe_allow_html=True)
