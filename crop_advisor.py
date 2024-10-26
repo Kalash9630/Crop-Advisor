@@ -3,8 +3,12 @@ import pickle
 import numpy as np
 
 # Import the model
-clf = pickle.load(open('pipe.pkl', 'rb'))
-df = pickle.load(open('df.pkl', 'rb'))
+try:
+    clf = pickle.load(open('pipe.pkl', 'rb'))
+    df = pickle.load(open('df.pkl', 'rb'))
+except Exception as e:
+    st.error("An error occurred while loading the model. Please check model files and try again.")
+    st.stop()
 
 # Title
 st.markdown("<h1 style='text-align: center;'>CROP ADVISOR</h1>", unsafe_allow_html=True)
@@ -60,11 +64,17 @@ if N and P and K and Temp and Humid and ph and rain:
         # Convert input values to float and create an array
         input_data = np.array([[float(N), float(P), float(K), float(Temp), float(Humid), float(ph), float(rain)]])
         
-        # Make the prediction
-        prediction = clf.predict(input_data)
-        
-        # Display the result
-        st.markdown(f"<h1 style='color:#4CAF50;'>The Suitable Crop to grow in these conditions is           {prediction[0].capitalize()}.</h1>", unsafe_allow_html=True)
+        # Make the prediction with error handling
+        try:
+            prediction = clf.predict(input_data)
+            # Display the result
+            st.markdown(f"<h1 style='color:#4CAF50;'>The Suitable Crop to grow in these conditions is {prediction[0].capitalize()}.</h1>", unsafe_allow_html=True)
+        except AttributeError as e:
+            st.error("The model encountered a compatibility issue. Please ensure the scikit-learn version matches the one used to train the model.")
+            st.text(f"Error details: {e}")
+        except Exception as e:
+            st.error("An error occurred during prediction. Please check input values.")
+            st.text(f"Error details: {e}")
     else:
         st.markdown("<h5 style='color: red;'>Please enter valid values in all fields to enable the prediction of Crop.</h5>", unsafe_allow_html=True)
 else:
