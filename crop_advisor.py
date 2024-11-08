@@ -11,7 +11,7 @@ st.markdown("<h1 style='font-size: 50px; text-align: center;'>CROP ADVISOR</h1>"
 st.markdown("")
 
 
-st.markdown('<p style="font-size: 16px ; margin-bottom: -50px">Enter ratio of Nitrogen content in soil:  [Range from 1 to 140]</p>', unsafe_allow_html=True)
+st.markdown('<p style="font-size: 18px ; margin-bottom: -50px">Enter ratio of Nitrogen content in soil:  [Range from 1 to 140]</p>', unsafe_allow_html=True)
 N = st.text_input("", key="nitrogen_input")
 if N and (float(N) < 1 or float(N) > 140):
     st.markdown("<h6 style='color: red;'>Nitrogen content must be between 1 and 140.</h6>", unsafe_allow_html=True)
